@@ -15,7 +15,7 @@ SUBPROJECTS += Tweak Preferences
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
-setup:: clean all package
+sim:: clean all package
 	@echo "Cleaning Tweak..."
 	sudo rm -f /opt/simject/Library/MobileSubstrate/DynamicLibraries/$(TWEAK_NAME).dylib
 	sudo rm -f /opt/simject/Library/MobileSubstrate/DynamicLibraries/$(TWEAK_NAME).plist
@@ -29,4 +29,4 @@ setup:: clean all package
 	sudo cp -rf .theos/_/Library/PreferenceBundles/$(TWEAK_NAME)Preferences.bundle /opt/simject/Library/PreferenceBundles/$(TWEAK_NAME)Preferences.bundle
 	sudo cp -f .theos/_/Library/PreferenceLoader/Preferences/$(TWEAK_NAME)Preferences.plist /opt/simject/Library/PreferenceLoader/Preferences/$(TWEAK_NAME)Preferences.plist
 	@echo "Respringing simulator..."
-	resim all
+	resim

@@ -20,103 +20,81 @@
             <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
-            <string>X</string>
+            <string>Position</string>
         </dict>
         <dict>
             <key>cell</key>
-            <string>PSSliderCell</string>
+            <string>PSEditTextCell</string>
             <key>defaults</key>
             <string>moe.waru.frame.preferences</string>
             <key>key</key>
             <string>frameX</string>
-            <key>min</key>
-            <real>-500</real>
-            <key>max</key>
-            <real>500</real>
-            <key>showValue</key>
-            <true/>
-        </dict>
-        <dict>
-            <key>cell</key>
-            <string>PSGroupCell</string>
             <key>label</key>
-            <string>Y</string>
+            <string>X</string>
+            <key>keyboard</key>
+            <string>numbers</string>
         </dict>
         <dict>
             <key>cell</key>
-            <string>PSSliderCell</string>
+            <string>PSEditTextCell</string>
             <key>defaults</key>
             <string>moe.waru.frame.preferences</string>
             <key>key</key>
             <string>frameY</string>
-            <key>min</key>
-            <real>-500</real>
-            <key>max</key>
-            <real>500</real>
-            <key>showValue</key>
-            <true/>
+            <key>label</key>
+            <string>Y</string>
+            <key>keyboard</key>
+            <string>numbers</string>
         </dict>
         <dict>
             <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
-            <string>Width</string>
+            <string>Size</string>
         </dict>
         <dict>
             <key>cell</key>
-            <string>PSSliderCell</string>
+            <string>PSEditTextCell</string>
             <key>defaults</key>
             <string>moe.waru.frame.preferences</string>
             <key>key</key>
             <string>frameWidth</string>
-            <key>min</key>
-            <real>-500</real>
-            <key>max</key>
-            <real>500</real>
-            <key>showValue</key>
-            <true/>
-        </dict>
-        <dict>
-            <key>cell</key>
-            <string>PSGroupCell</string>
             <key>label</key>
-            <string>Height</string>
+            <string>Width</string>
+            <key>keyboard</key>
+            <string>numbers</string>
         </dict>
         <dict>
             <key>cell</key>
-            <string>PSSliderCell</string>
+            <string>PSEditTextCell</string>
             <key>defaults</key>
             <string>moe.waru.frame.preferences</string>
             <key>key</key>
             <string>frameHeight</string>
-            <key>min</key>
-            <real>-500</real>
-            <key>max</key>
-            <real>500</real>
-            <key>showValue</key>
-            <true/>
+            <key>label</key>
+            <string>Height</string>
+            <key>keyboard</key>
+            <string>numbers</string>
         </dict>
         <dict>
             <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
-            <string>Reset</string>
+            <string>Apply</string>
         </dict>
         <dict>
             <key>cell</key>
             <string>PSButtonCell</string>
             <key>label</key>
-            <string>Reset to Default</string>
+            <string>Respring</string>
             <key>action</key>
-            <string>reset</string>
-            <key>isDestructive</key>
-            <true/>
+            <string>respring</string>
             <key>confirmation</key>
             <dict>
                 <key>prompt</key>
                 <string>Are you sure you want to continue?</string>
                 <key>title</key>
-                <string>Reset</string>
+                <string>Respring</string>
                 <key>cancelTitle</key>
                 <string>Cancel</string>
             </dict>
