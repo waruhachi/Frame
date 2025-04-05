@@ -6,22 +6,25 @@
     <array>
         <dict>
             <key>cell</key>
-            <string>PSSwitchCell</string>
-            <key>default</key>
-            <true/>
-            <key>defaults</key>
-            <string>moe.waru.frame.preferences</string>
-            <key>key</key>
-            <string>enabled</string>
-            <key>label</key>
-            <string>Enabled</string>
-        </dict>
-        <dict>
-            <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
             <string>Position</string>
         </dict>
+
+        <dict>
+			<key>cell</key>
+			<key>PSSwitchCell</key>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>moe.waru.frame.preferences</string>
+			<key>key</key>
+			<string>frameXEnabled</string>
+			<key>label</key>
+			<string>Enable X</string>
+			<key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
+		</dict>
         <dict>
             <key>cell</key>
             <string>PSEditTextCell</string>
@@ -33,7 +36,26 @@
             <string>X</string>
             <key>keyboard</key>
             <string>numbers</string>
+            <key>dependsOn</key>
+			<string>frameXEnabled</string>
+            <key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
         </dict>
+
+        <dict>
+			<key>cell</key>
+			<key>PSSwitchCell</key>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>moe.waru.frame.preferences</string>
+			<key>key</key>
+			<string>frameYEnabled</string>
+			<key>label</key>
+			<string>Enable Y</string>
+			<key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
+		</dict>
         <dict>
             <key>cell</key>
             <string>PSEditTextCell</string>
@@ -45,13 +67,34 @@
             <string>Y</string>
             <key>keyboard</key>
             <string>numbers</string>
+            <key>dependsOn</key>
+			<string>frameYEnabled</string>
+            <key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
         </dict>
+
+
         <dict>
             <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
             <string>Size</string>
         </dict>
+
+        <dict>
+			<key>cell</key>
+			<key>PSSwitchCell</key>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>moe.waru.frame.preferences</string>
+			<key>key</key>
+			<string>frameWidthEnabled</string>
+			<key>label</key>
+			<string>Enable Width</string>
+			<key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
+		</dict>
         <dict>
             <key>cell</key>
             <string>PSEditTextCell</string>
@@ -63,7 +106,26 @@
             <string>Width</string>
             <key>keyboard</key>
             <string>numbers</string>
+            <key>dependsOn</key>
+			<string>frameWidthEnabled</string>
+            <key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
         </dict>
+
+        <dict>
+			<key>cell</key>
+			<key>PSSwitchCell</key>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>moe.waru.frame.preferences</string>
+			<key>key</key>
+			<string>frameHeightEnabled</string>
+			<key>label</key>
+			<string>Enable Height</string>
+			<key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
+		</dict>
         <dict>
             <key>cell</key>
             <string>PSEditTextCell</string>
@@ -75,13 +137,20 @@
             <string>Height</string>
             <key>keyboard</key>
             <string>numbers</string>
+            <key>dependsOn</key>
+			<string>frameHeightEnabled</string>
+            <key>PostNotification</key>
+			<string>moe.waru.frame.preferences.reload</string>
         </dict>
+
+
         <dict>
             <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
             <string>Apply</string>
         </dict>
+
         <dict>
             <key>cell</key>
             <string>PSButtonCell</string>
@@ -99,6 +168,7 @@
                 <string>Cancel</string>
             </dict>
         </dict>
+
     </array>
     <key>title</key>
     <string>Frame</string>

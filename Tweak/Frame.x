@@ -1,55 +1,28 @@
-#import "Frame.h"
-
-// %hook UIStatusBar_Modern
-
-// - (void)setFrame:(CGRect)frame {
-//     if (enabled) {
-//         if (frameX > 0) {
-//             frame.origin.x = frameX;
-//         }
-//         if (frameY > 0) {
-//             frame.origin.y = frameY;
-//         }
-//         if (frameWidth > 0) {
-//             frame.size.width = frameWidth;
-//         }
-//         if (frameHeight > 0) {
-//             frame.size.height = frameHeight;
-//         }
-//     }
-
-//     %orig(frame);
-// }
-
-// %end
+#include "Frame.h"
 
 %hook _UIStatusBar
 
 - (void)setFrame:(CGRect)frame {
-    if (enabled) {
-        if (frameX != 0) {
-            frame.origin.x = frameX;
-        }
-        if (frameY != 0) {
-            frame.origin.y = frameY;
-        }
-        if (frameWidth != 0) {
-            frame.size.width = frameWidth;
-        }
-        if (frameHeight != 0) {
-            frame.size.height = frameHeight;
-        }
-    }
+    if ([[self _statusBarWindowForAccessibilityHUD] isKindOfClass:%c(SBControlCenterWindow)]) return %orig(frame);
 
-    %orig(frame);
+    if (frameXEnabled) frame.origin.x = frameX;
+    if (frameYEnabled) frame.origin.y = frameY;
+    if (frameWidthEnabled) frame.size.width = frameWidth;
+    if (frameHeightEnabled) frame.size.height = frameHeight;
+
+    return %orig(frame);
 }
 
 %end
 
+
 %ctor {
     preferences = [[NSUserDefaults alloc] initWithSuiteName:@"moe.waru.frame.preferences"];
 
-    enabled = [preferences objectForKey:@"enabled"] ? [preferences boolForKey:@"enabled"] : NO;
+    frameXEnabled = [preferences objectForKey:@"frameXEnabled"] ? [preferences boolForKey:@"frameXEnabled"] : NO;
+    frameYEnabled = [preferences objectForKey:@"frameYEnabled"] ? [preferences boolForKey:@"frameYEnabled"] : NO;
+    frameWidthEnabled = [preferences objectForKey:@"frameWidthEnabled"] ? [preferences boolForKey:@"frameWidthEnabled"] : NO;
+    frameHeightEnabled = [preferences objectForKey:@"frameHeightEnabled"] ? [preferences boolForKey:@"frameHeightEnabled"] : NO;
 
     NSString *frameXString = [preferences objectForKey:@"frameX"] ? [preferences stringForKey:@"frameX"] : @"";
     NSString *frameYString = [preferences objectForKey:@"frameY"] ? [preferences stringForKey:@"frameY"] : @"";

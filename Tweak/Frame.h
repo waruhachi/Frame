@@ -1,15 +1,16 @@
-#import <UIKit/UIKit.h>
+#include <UIKit/UIKit.h>
 
 @interface _UIStatusBar : UIView
+    - (id)_statusBarWindowForAccessibilityHUD;
 @end
-
-// @interface UIStatusBar_Modern : UIView
-// @end
 
 @interface NSDistributedNotificationCenter : NSNotificationCenter
 @end
 
-static BOOL enabled;
+static BOOL frameXEnabled;
+static BOOL frameYEnabled;
+static BOOL frameWidthEnabled;
+static BOOL frameHeightEnabled;
 
 static CGFloat frameX;
 static CGFloat frameY;

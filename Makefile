@@ -1,6 +1,6 @@
 export TWEAK_NAME = Frame
 
-ifeq ($(SIMULATOR), 1)
+ifneq (,$(filter sim,$(MAKECMDGOALS)))
     export ARCHS = arm64
     export TARGET = simulator:clang:17.2:14.0
 else
@@ -15,7 +15,9 @@ SUBPROJECTS += Tweak Preferences
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
-sim:: clean all package
+tweak:: clean pacakge
+
+sim:: tweak
 	@echo "Cleaning Tweak..."
 	sudo rm -f /opt/simject/Library/MobileSubstrate/DynamicLibraries/$(TWEAK_NAME).dylib
 	sudo rm -f /opt/simject/Library/MobileSubstrate/DynamicLibraries/$(TWEAK_NAME).plist
