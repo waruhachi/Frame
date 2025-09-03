@@ -15,7 +15,7 @@ SUBPROJECTS += Tweak Preferences
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
-tweak:: clean pacakge
+tweak:: clean package
 
 sim:: tweak
 	@echo "Cleaning Tweak..."
